@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/alexandria-floods/static/css/main.5431192a.chunk.css",
+    "main.js": "/alexandria-floods/static/js/main.ad70f723.chunk.js",
+    "main.js.map": "/alexandria-floods/static/js/main.ad70f723.chunk.js.map",
+    "runtime-main.js": "/alexandria-floods/static/js/runtime-main.1639b62b.js",
+    "runtime-main.js.map": "/alexandria-floods/static/js/runtime-main.1639b62b.js.map",
+    "static/js/2.b8c713d9.chunk.js": "/alexandria-floods/static/js/2.b8c713d9.chunk.js",
+    "static/js/2.b8c713d9.chunk.js.map": "/alexandria-floods/static/js/2.b8c713d9.chunk.js.map",
+    "index.html": "/alexandria-floods/index.html",
+    "precache-manifest.df887a26e219586d650040a1d22ba7a4.js": "/alexandria-floods/precache-manifest.df887a26e219586d650040a1d22ba7a4.js",
+    "service-worker.js": "/alexandria-floods/service-worker.js",
+    "static/css/main.5431192a.chunk.css.map": "/alexandria-floods/static/css/main.5431192a.chunk.css.map",
+    "static/js/2.b8c713d9.chunk.js.LICENSE.txt": "/alexandria-floods/static/js/2.b8c713d9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1639b62b.js",
+    "static/js/2.b8c713d9.chunk.js",
+    "static/css/main.5431192a.chunk.css",
+    "static/js/main.ad70f723.chunk.js"
+  ]
+}
