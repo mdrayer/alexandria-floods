@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import Chart from './components/Chart';
+import Charts from './components/Charts';
 import Tables from './components/Tables';
 import load from './data/load';
 import { DateItem } from './models/data';
@@ -16,25 +16,27 @@ function App() {
   return (
     <div className="container">
       <div className="header text-center">
-        <h1>Precipitation Stats for Major Flood Events in Alexandria, VA</h1>
+        <h1>
+          Precipitation Stats for Major Flash Flood Events in Alexandria, VA
+        </h1>
       </div>
       <div className="row">
         <div className="col">
           <p className="text-center">
-            Data retrieved from PWS Rosemont Park - KVAALEXA9:{' '}
+            Data retrieved from{' '}
             <a
               href="https://www.wunderground.com/dashboard/pws/KVAALEXA9"
               target="_blank"
               rel="noopener noreferrer"
             >
-              https://www.wunderground.com/dashboard/pws/KVAALEXA9
+              PWS Rosemont Park - KVAALEXA9
             </a>
           </p>
         </div>
       </div>
       {data ? (
         <div>
-          <Chart data={data} />
+          <Charts data={data} />
           <Tables data={data} />
         </div>
       ) : (
@@ -46,7 +48,7 @@ function App() {
           </div>
         </div>
       )}
-      <div className="row">
+      <div className="row border-top mt-3">
         <div className="col text-center">
           Icons made by{' '}
           <a

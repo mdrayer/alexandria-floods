@@ -19,7 +19,7 @@ const months = [
 const formatTime = (time: string): string => {
   const hour = Number(time.substring(0, 2));
   const minute = time.substring(2);
-  const period = hour > 12 ? 'PM' : 'AM';
+  const period = hour > 11 ? 'PM' : 'AM';
   const newHour = hour % 12;
   const newHourText = String(newHour === 0 ? 12 : newHour);
   const leadingZero = newHourText.length === 2 ? '' : '0';
