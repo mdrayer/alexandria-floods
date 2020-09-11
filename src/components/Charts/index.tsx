@@ -4,8 +4,6 @@ import { flatten, max } from 'lodash-es';
 import { DateItem } from '../../models/data';
 import Chart from './Chart';
 
-const syncId = 'floodCharts';
-
 // TODO: DATES TO GET
 // September 11, 2011
 
@@ -23,14 +21,9 @@ const Charts = ({ data }: ChartProps): JSX.Element => {
   return (
     <div>
       <h2>Precipitation Rate (inches per hour)</h2>
-      <Chart data={data} maxYValue={maxYValue} dataKey="rate" syncId={syncId} />
+      <Chart data={data} maxYValue={maxYValue} dataKey="rate" />
       <h2>Total accumulation (inches)</h2>
-      <Chart
-        data={data}
-        maxYValue={maxYValue}
-        dataKey="accumulation"
-        syncId={syncId}
-      />
+      <Chart data={data} maxYValue={maxYValue} dataKey="accumulation" />
     </div>
   );
 };

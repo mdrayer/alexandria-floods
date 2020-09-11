@@ -5,7 +5,7 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
+  // Tooltip,
   Legend,
   ResponsiveContainer,
 } from 'recharts';
@@ -18,7 +18,7 @@ interface ChartProps {
   data: DateItem[];
   maxYValue: number | null | undefined;
   dataKey: 'accumulation' | 'rate';
-  syncId: string;
+  syncId?: string;
 }
 
 const Chart = ({
@@ -47,7 +47,7 @@ const Chart = ({
         width={20}
         domain={(maxYValue && [0, Math.ceil(maxYValue)]) || undefined}
       />
-      <Tooltip labelFormatter={(i) => `${Number(i) * 15} minutes`} />
+      {/* <Tooltip labelFormatter={(i) => `${Number(i) * 15} minutes`} /> */}
       <Legend verticalAlign="top" />
       {data.map((d, i) => (
         <Line
