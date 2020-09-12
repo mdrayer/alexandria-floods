@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/alexandria-floods/precache-manifest.640832775b995169c89a8911b179b001.js"
+  "/alexandria-floods/precache-manifest.a7980ad89accbbff989cb4ad0f71b5d9.js"
 );
 
 self.addEventListener('message', (event) => {
