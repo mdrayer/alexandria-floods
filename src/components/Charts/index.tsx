@@ -19,11 +19,15 @@ const Charts = ({ data }: ChartProps): JSX.Element => {
   ]);
 
   return (
-    <div>
-      <h2>Precipitation Rate (inches per hour)</h2>
-      <Chart data={data} maxYValue={maxYValue} dataKey="rate" />
-      <h2>Total accumulation (inches)</h2>
-      <Chart data={data} maxYValue={maxYValue} dataKey="accumulation" />
+    <div className="row">
+      <div className="col-lg-6">
+        <h2 className="text-center">Precipitation Rate (inches per hour)</h2>
+        <Chart data={data} maxYValue={maxYValue} dataKey="rate" />
+      </div>
+      <div className="col-lg-6">
+        <h2 className="text-center">Total accumulation (inches)</h2>
+        <Chart data={data} maxYValue={maxYValue} dataKey="accumulation" />
+      </div>
     </div>
   );
 };

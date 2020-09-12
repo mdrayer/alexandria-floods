@@ -6,7 +6,7 @@ export interface CsvData {
 }
 
 export interface ChartData extends CsvData {
-  index: number;
+  elapsedTime: number;
 }
 
 export interface DateItem {

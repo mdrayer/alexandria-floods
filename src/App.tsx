@@ -17,7 +17,8 @@ function App() {
     <div className="container">
       <div className="header text-center">
         <h1>
-          Precipitation Stats for Major Flash Flood Events in Alexandria, VA
+          Precipitation Stats for Major Flash Flood Events in
+          Alexandria,&nbsp;VA
         </h1>
       </div>
       <div className="row">

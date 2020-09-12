@@ -31,11 +31,10 @@ const Chart = ({
     <LineChart syncId={syncId} margin={{ right: 5, bottom: 20 }}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis
-        dataKey="index"
+        dataKey="elapsedTime"
         type="number"
-        tickFormatter={(i) => i * 15}
-        tickCount={6}
-        domain={['dataMin', 'dataMax']}
+        ticks={[0, 30, 60, 90, 120, 150, 180]}
+        domain={[0, 180]}
         label={{
           value: 'Elapsed time (minutes)',
           position: 'bottom',
@@ -54,7 +53,8 @@ const Chart = ({
           key={d.date}
           connectNulls={true}
           type="monotone"
-          data={d.data}
+          // We want to only show data within the domain.
+          data={d.data.filter((a) => a.elapsedTime <= 180)}
           name={d.date}
           dataKey={dataKey}
           stroke={colors[i]}
