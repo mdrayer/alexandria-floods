@@ -12,6 +12,7 @@ export interface ChartData extends CsvData {
 export interface DateItem {
   date: string;
   data: ChartData[];
+  color: string;
 }
 
 export interface NestedData {

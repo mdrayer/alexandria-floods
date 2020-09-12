@@ -1,4 +1,3 @@
-import { descending } from 'd3-array';
 import React, { useState } from 'react';
 import Select, { OptionTypeBase, ValueType } from 'react-select';
 
@@ -14,15 +13,13 @@ interface TableByDayProps {
 }
 
 const TableByDay = ({ data }: TableByDayProps): JSX.Element => {
-  const dateOptions: DateOption[] = data
-    .sort((a, b) => descending(a.key, b.key))
-    .map((d) => {
-      return {
-        label: d.key,
-        value: d.key,
-        data: d.value,
-      };
-    });
+  const dateOptions: DateOption[] = data.map((d) => {
+    return {
+      label: d.key,
+      value: d.key,
+      data: d.value,
+    };
+  });
   const [selectedDate, setSelectedDate] = useState<ValueType<DateOption>>(
     dateOptions[0]
   );

@@ -7,16 +7,14 @@ const Intro = (): JSX.Element => (
         In the Hooffs Run/Blue Park neighborhood, we have had 3 major flood
         events in 2019 and 2020: <strong>July 8, 2019</strong>;{' '}
         <strong>July 23, 2020</strong>; and <strong>September 10, 2020</strong>.
-        Hymenaeos, dolor? Inceptos ornare qui ut mattis vero dignissimos
-        sagittis suscipit nisl ut minima. Nesciunt? Incidunt? Adipiscing harum
-        incididunt gravida, fusce consectetur, ullamcorper in. Euismod rutrum,
-        ipsa soluta, vero amet tristique nisi, atque consectetur! Corrupti donec
-        vulputate possimus blandit? Eu? Mollitia pede, exercitation.
-        Voluptatibus? Aspernatur cubilia, perferendis pulvinar excepteur eu
-        minima feugiat eleifend iure eaque nostrum nostra cupiditate scelerisque
-        soluta.
+        Using local personal weather stations (PWS), we gathered data dating
+        back to October 2012 looking for major precipitation events (note that
+        only 2019 and 2020 data are currently in the app). In the charts below,
+        we show the <strong>precipition rate (inch per hour)</strong> and{' '}
+        <strong>total accumulation (inches)</strong> for selected flood and
+        heavy rain events. Flood events use reds/oranges/yellows, while heavy
+        rain events use blues/greens.
       </p>
-      {/* <p>In the charts below, I have captured these flood events.</p> */}
     </div>
   </div>
 );

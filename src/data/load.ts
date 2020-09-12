@@ -1,3 +1,4 @@
+import { descending } from 'd3-array';
 import { nest } from 'd3-collection';
 import { csv } from 'd3-fetch';
 import max from 'lodash-es/max';
@@ -27,18 +28,16 @@ const load = async (): Promise<NestedData[]> => {
   const data = await fetchCsv('/alexandria-floods/data/all.csv');
   const nested = nest<CsvData, NestedDataValue>()
     .key((d) => d.date)
-    .rollup((a) => {
+    .rollup((d) => {
       return {
-        maxRate: max(a.map((b) => b.rate)),
-        maxAccumulation: max(a.map((b) => b.accumulation)),
-        data: a,
+        maxRate: max(d.map((a) => a.rate)),
+        maxAccumulation: max(d.map((a) => a.accumulation)),
+        data: d,
       };
     })
     .entries(data) as NestedData[];
 
-  console.log(nested);
-
-  return nested;
+  return nested.sort((a, b) => descending(a.key, b.key));
 };
 
 export default load;

@@ -12,22 +12,11 @@ import {
 
 import { DateItem } from '../../models/data';
 
-const defaultColors = [
-  '#ffd45b',
-  '#f6b44d',
-  '#db9671',
-  '#ba7a8d',
-  '#8d5eaa',
-  '#3940bb',
-  '#0033b0',
-];
-
 interface ChartProps {
   data: DateItem[];
   maxYValue: number | null | undefined;
   dataKey: 'accumulation' | 'rate';
   syncId?: string;
-  colors?: string[];
 }
 
 /**
@@ -38,7 +27,6 @@ const Chart = ({
   maxYValue,
   dataKey,
   syncId,
-  colors = defaultColors,
 }: ChartProps): JSX.Element => (
   <ResponsiveContainer width="100%" height={300}>
     <LineChart syncId={syncId} margin={{ right: 5, bottom: 20 }}>
@@ -61,7 +49,7 @@ const Chart = ({
       />
       {/* <Tooltip labelFormatter={(i) => `${Number(i) * 15} minutes`} /> */}
       <Legend verticalAlign="top" iconType="square" />
-      {data.map((d, i) => (
+      {data.map((d) => (
         <Line
           key={d.date}
           connectNulls={true}
@@ -70,7 +58,7 @@ const Chart = ({
           data={d.data.filter((a) => a.elapsedTime <= 180)}
           name={d.date}
           dataKey={dataKey}
-          stroke={colors[i]}
+          stroke={d.color}
           dot={false}
         />
       ))}
