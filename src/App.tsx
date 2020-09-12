@@ -1,4 +1,4 @@
-import { ascending } from 'd3-array';
+import { ascending, descending } from 'd3-array';
 import React, { useEffect, useState } from 'react';
 
 import Charts from './components/Charts';
@@ -31,6 +31,10 @@ function App() {
     ? data
         // Filter to only certain dates.
         .filter((d) => floodDates.includes(d.key))
+        .sort((a, b) =>
+          // Sort by max accumulation (descending).
+          descending(a.value.maxAccumulation || 0, b.value.maxAccumulation || 0)
+        )
         .map((d, index) => {
           // Find the first item that goes above the rate threshold.
           const aboveThresholdIndex = d.value.data.findIndex(
@@ -78,6 +82,10 @@ function App() {
           d.value.maxAccumulation >= 1.5 &&
           d.value.maxRate &&
           d.value.maxRate >= 1
+      )
+      .sort((a, b) =>
+        // Sort by max accumulation (descending).
+        descending(a.value.maxAccumulation || 0, b.value.maxAccumulation || 0)
       )
       .map((a, index) => {
         // Find the item with the max rate. We will display our data based on that.

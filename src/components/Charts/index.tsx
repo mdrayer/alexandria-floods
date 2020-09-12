@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { flatten, max } from 'lodash-es';
+import { descending } from 'd3-array';
 
 import Chart from './Chart';
 
@@ -22,7 +23,11 @@ const Charts = ({ floodData, nonFloodData }: ChartProps): JSX.Element => {
     ...flattenedData.map((a) => a.accumulation),
   ]);
 
-  const data = [...floodData, ...(showNonFloodData ? nonFloodData : [])];
+  const data = [...floodData, ...(showNonFloodData ? nonFloodData : [])].sort(
+    (a, b) =>
+      // Sort by date to show most recent first.
+      descending(a.date, b.date)
+  );
 
   return (
     <div>
