@@ -72,6 +72,19 @@ const Charts = ({ floodData, nonFloodData }: ChartProps): JSX.Element => {
           </div>
         </div>
       </div>
+      <div className="row mt-2">
+        <div className="col-sm-2"></div>
+        <div className="col-sm-8">
+          <div className="alert alert-info">
+            <small>
+              Heavy rain non-flood days are defined as having a total
+              accumulation of over 1.5 inches and a maximum precipitation rate
+              of greater than or equal to 1.1 inches.
+            </small>
+          </div>
+        </div>
+        <div className="col-sm-2"></div>
+      </div>
     </div>
   );
 };
