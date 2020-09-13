@@ -8,14 +8,10 @@ interface LegendSquareProps {
 
 const LegendSquare = ({ color }: LegendSquareProps) => (
   <svg
-    className="mr-1"
+    className="mr-1 align-middle d-inline-block"
     width={squareLength}
     height={squareLength}
     viewBox={`0 0 ${squareLength} ${squareLength}`}
-    style={{
-      display: 'inline-block',
-      verticalAlign: 'middle',
-    }}
   >
     <rect fill={color} width={squareLength} height={squareLength} />
   </svg>

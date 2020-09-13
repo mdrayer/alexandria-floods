@@ -42,7 +42,7 @@ const Charts = ({ floodData, nonFloodData }: ChartProps): JSX.Element => {
               name="show-non-flood"
               checked={showNonFloodData}
               onChange={() => setShowNonFloodData(!showNonFloodData)}
-              className="mr-1"
+              className="mr-1 align-middle"
             />
             <label htmlFor="show-non-flood">
               Show heavy rain events (non-flood)

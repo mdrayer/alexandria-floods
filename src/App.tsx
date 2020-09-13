@@ -110,7 +110,7 @@ function App() {
 
               return minuteDiff < 120;
             })
-            .map((b, i) => {
+            .map((b) => {
               if (!startTime) {
                 startTime = new Date(`${b.date} ${b.time}`);
               }
