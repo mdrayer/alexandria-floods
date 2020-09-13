@@ -79,7 +79,9 @@ const Charts = ({ floodData, nonFloodData }: ChartProps): JSX.Element => {
             <small>
               Heavy rain non-flood days are defined as having a total
               accumulation of over 1.5 inches and a maximum precipitation rate
-              of greater than or equal to 1.1 inches.
+              of greater than or equal to 1.1 inches. The peak rate for each
+              event is shown around the 80 elapsed minute mark in the chart to
+              show the sudden and intense precipitation leading up to it.
             </small>
           </div>
         </div>

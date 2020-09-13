@@ -90,9 +90,11 @@ function App() {
       )
       .map((a, index) => {
         // Find the item with the max rate. We will display our data based on that.
-        const maxRateItem = a.value.data.find(
+        const maxRateItemIndex = a.value.data.findIndex(
           (b) => b.rate === a.value.maxRate
         );
+        const maxRateItem =
+          maxRateItemIndex > -1 ? a.value.data[maxRateItemIndex] : undefined;
         const maxRateDate =
           maxRateItem && getDate(maxRateItem.date, maxRateItem.time);
 
@@ -101,15 +103,19 @@ function App() {
         return {
           date: a.key,
           data: a.value.data
-            .filter((b) => {
+            .filter((b, i) => {
               if (!maxRateDate) {
+                return true;
+              }
+
+              if (i > maxRateItemIndex) {
                 return true;
               }
 
               const comparisonDate = getDate(b.date, b.time);
               const minuteDiff = diffMinutes(maxRateDate, comparisonDate);
 
-              return minuteDiff < 120;
+              return minuteDiff <= 80;
             })
             .map((b) => {
               if (!startTime) {
