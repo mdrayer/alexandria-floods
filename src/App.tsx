@@ -81,7 +81,7 @@ function App() {
           d.value.maxAccumulation &&
           d.value.maxAccumulation >= 1.5 &&
           d.value.maxRate &&
-          d.value.maxRate >= 1
+          d.value.maxRate >= 1.1
       )
       .sort((a, b) =>
         // Sort by max accumulation (descending).

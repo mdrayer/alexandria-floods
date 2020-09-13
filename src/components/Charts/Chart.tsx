@@ -5,8 +5,6 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  // Tooltip,
-  Legend,
   ResponsiveContainer,
 } from 'recharts';
 
@@ -47,8 +45,6 @@ const Chart = ({
         width={20}
         domain={(maxYValue && [0, Math.ceil(maxYValue)]) || undefined}
       />
-      {/* <Tooltip labelFormatter={(i) => `${Number(i) * 15} minutes`} /> */}
-      <Legend verticalAlign="top" iconType="square" />
       {data.map((d) => (
         <Line
           key={d.date}

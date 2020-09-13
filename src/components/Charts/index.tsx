@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { flatten, max } from 'lodash-es';
 import { descending } from 'd3-array';
 
-import Chart from './Chart';
-
 import { DateItem } from '../../models/data';
+
+import Chart from './Chart';
+import LegendSquare from './LegendSquare';
 
 interface ChartProps {
   floodData: DateItem[];
@@ -57,6 +58,18 @@ const Charts = ({ floodData, nonFloodData }: ChartProps): JSX.Element => {
         <div className="col-lg-6">
           <h3 className="text-center">Total Accumulation</h3>
           <Chart data={data} maxYValue={maxYValue} dataKey="accumulation" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <div className="d-flex flex-wrap justify-content-center">
+            {data.map((d) => (
+              <div key={d.date} className="px-1">
+                <LegendSquare color={d.color} />
+                {d.date}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
