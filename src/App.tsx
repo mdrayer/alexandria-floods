@@ -8,6 +8,7 @@ import load from './data/load';
 import { DateItem, NestedData } from './models/data';
 import diffMinutes from './util/diffMinutes';
 import { formatNumber } from './util/formatters';
+import getDate from './util/getDate';
 
 // Rate threshold.
 const threshold = 0.5;
@@ -55,10 +56,10 @@ function App() {
               .filter((_, i) => i >= startIndex)
               .map((d, i) => {
                 if (!startTime) {
-                  startTime = new Date(`${d.date} ${d.time}`);
+                  startTime = getDate(d.date, d.time);
                 }
 
-                const thisTime = new Date(`${d.date} ${d.time}`);
+                const thisTime = getDate(d.date, d.time);
 
                 return {
                   ...d,
@@ -93,7 +94,7 @@ function App() {
           (b) => b.rate === a.value.maxRate
         );
         const maxRateDate =
-          maxRateItem && new Date(`${maxRateItem.date} ${maxRateItem.time}`);
+          maxRateItem && getDate(maxRateItem.date, maxRateItem.time);
 
         let startTime: Date | null = null;
 
@@ -105,17 +106,17 @@ function App() {
                 return true;
               }
 
-              const comparisonDate = new Date(`${b.date} ${b.time}`);
+              const comparisonDate = getDate(b.date, b.time);
               const minuteDiff = diffMinutes(maxRateDate, comparisonDate);
 
               return minuteDiff < 120;
             })
             .map((b) => {
               if (!startTime) {
-                startTime = new Date(`${b.date} ${b.time}`);
+                startTime = getDate(b.date, b.time);
               }
 
-              const thisTime = new Date(`${b.date} ${b.time}`);
+              const thisTime = getDate(b.date, b.time);
 
               return {
                 ...b,
