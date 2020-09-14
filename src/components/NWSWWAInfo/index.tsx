@@ -11,7 +11,7 @@ import {
   YAxis,
 } from 'recharts';
 
-import NwsData, { NestedNwsData } from '../../models/nwsData';
+import NwsData, { NestedNwsData } from '../../models/NwsData';
 import PhNames from '../../models/PhNames';
 import { nonFloodColors } from '../../util/colors';
 

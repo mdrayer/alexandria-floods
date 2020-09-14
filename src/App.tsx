@@ -8,7 +8,7 @@ import DailyData from './components/Tables/DailyData';
 import load from './data/load';
 import loadNwsData from './data/loadNwsData';
 import { DateItem, NestedData } from './models/data';
-import NwsData from './models/nwsData';
+import NwsData from './models/NwsData';
 import { floodColors, nonFloodColors } from './util/colors';
 import diffMinutes from './util/diffMinutes';
 import getDate from './util/getDate';

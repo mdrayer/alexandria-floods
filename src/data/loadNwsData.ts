@@ -1,6 +1,6 @@
 import { csv } from 'd3-fetch';
 
-import NwsData from '../models/nwsData';
+import NwsData from '../models/NwsData';
 
 const csvFile = 'vtec_VAC510_20000101_20200913.csv';
 

@@ -4,7 +4,7 @@ import uniq from 'lodash-es/uniq';
 import React, { useMemo, useState } from 'react';
 
 import { NestedData } from '../../models/data';
-import NwsData from '../../models/nwsData';
+import NwsData from '../../models/NwsData';
 import PhNames from '../../models/PhNames';
 import { formatNumber } from '../../util/formatters';
 
