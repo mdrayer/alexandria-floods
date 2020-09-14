@@ -25,3 +25,12 @@ table thead th {
   background-color: grey;
   color: white;
 }
+
+table tr.flood-date {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+table tr.flood-date:hover {
+  background-color: #a3001e;
+}

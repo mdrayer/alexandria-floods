@@ -4,10 +4,13 @@ import React, { useEffect, useState } from 'react';
 import Charts from './components/Charts';
 import Intro from './components/Intro';
 import Tables from './components/Tables';
+import DailyData from './components/Tables/DailyData';
 import load from './data/load';
+import loadNwsData from './data/loadNwsData';
 import { DateItem, NestedData } from './models/data';
+import NwsData from './models/nwsData';
+import { floodColors, nonFloodColors } from './util/colors';
 import diffMinutes from './util/diffMinutes';
-import { formatNumber } from './util/formatters';
 import getDate from './util/getDate';
 
 // Rate threshold.
@@ -17,15 +20,14 @@ const minThresholdIndex = 2;
 // List of dates with confirmed flooding in the Rosemont neighborhood.
 const floodDates = ['2019-07-08', '2020-07-23', '2020-09-10'];
 
-const floodColors = ['#c20000', '#ff5e00', '#ffce6c'];
-const nonFloodColors = ['#000048', '#0044d1', '#69c0ff', '#45a183', '#008400'];
-
 function App() {
   const [data, setData] = useState<NestedData[] | null>(null);
+  const [nwsData, setNwsData] = useState<NwsData[] | null>(null);
 
   useEffect(() => {
     // Load and set data on app initialization.
     load().then(setData);
+    loadNwsData().then(setNwsData);
   }, []);
 
   const floodData: DateItem[] | null = data
@@ -158,54 +160,31 @@ function App() {
           </div>
         </div>
       )}
-      {data && (
-        <div className="row border-top mt-3 pt-2">
-          <div className="col-lg-3" />
-          <div className="col-lg-6">
-            <h2 className="text-center">Daily data</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Max precip. rate</th>
-                  <th>Total accumulation</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((d) => (
-                  <tr key={d.key}>
-                    <th>
-                      <a
-                        href={`https://www.wunderground.com/dashboard/pws/KVAALEXA9/table/${d.key}/${d.key}/daily#history-toolbar`}
-                      >
-                        {d.key}
-                      </a>
-                    </th>
-                    <td align="right">
-                      {formatNumber(d.value.maxRate, ' in.')}
-                    </td>
-                    <td align="right">
-                      {formatNumber(d.value.maxAccumulation, ' in.')}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="col-lg-3" />
-        </div>
-      )}
+      {data && nwsData ? (
+        <DailyData data={data} nwsData={nwsData} floodDates={floodDates} />
+      ) : null}
       <hr />
       <div className="row">
         <div className="col text-center">
           <p className="mb-0">
-            Data retrieved from{' '}
+            Local weather data retrieved from{' '}
             <a
               href="https://www.wunderground.com/dashboard/pws/KVAALEXA9"
               target="_blank"
               rel="noopener noreferrer"
             >
               PWS Rosemont Park - KVAALEXA9
+            </a>
+          </p>
+          <p className="mb-0">
+            National Weather Service (NWS) Watch, Warning, and Advisories data
+            retrieved from{' '}
+            <a
+              href="https://mesonet.agron.iastate.edu/vtec/search.php#byugc/VA/VAC510/20000101/20200913"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Iowa State University
             </a>
           </p>
           <p>
