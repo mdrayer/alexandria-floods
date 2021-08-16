@@ -18,7 +18,7 @@ const threshold = 0.5;
 // Ideally, we want the index of the threshold data item to be third in the array.
 const minThresholdIndex = 2;
 // List of dates with confirmed flooding in the Rosemont neighborhood.
-const floodDates = ['2019-07-08', '2020-07-23', '2020-09-10'];
+const floodDates = ['2019-07-08', '2020-07-23', '2020-09-10', '2021-08-15'];
 
 function App() {
   const [data, setData] = useState<NestedData[] | null>(null);

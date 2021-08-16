@@ -1,8 +1,9 @@
-export const floodColors = ['#c20000', '#ff5e00', '#ffce6c'];
+export const floodColors = ['#c2026f', '#f54352', '#ff882b', '#ffcc00'];
 export const nonFloodColors = [
   '#000048',
-  '#0044d1',
-  '#69c0ff',
-  '#45a183',
+  '#002871',
+  '#00437f',
+  '#005b6e',
+  '#007246',
   '#008400',
 ];
