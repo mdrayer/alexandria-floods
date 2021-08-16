@@ -1,3 +1,4 @@
+import { descending } from 'd3-array';
 import React from 'react';
 
 import { DateItem } from '../../models/data';
@@ -16,12 +17,14 @@ const Tables = ({ data }: TablesProps) => (
       </div>
     </div>
     <div className="row">
-      {data.map((d) => (
-        <div className="col-md-4" key={d.date}>
-          <h3 className="text-center">{d.date}</h3>
-          <Table data={d.data.filter((_, i) => i < 14)} />
-        </div>
-      ))}
+      {data
+        .sort((a, b) => descending(a.date, b.date))
+        .map((d) => (
+          <div className="col-lg-6 col-xl-3" key={d.date}>
+            <h3 className="text-center">{d.date}</h3>
+            <Table data={d.data.filter((_, i) => i < 14)} />
+          </div>
+        ))}
     </div>
   </div>
 );
